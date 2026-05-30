@@ -1,0 +1,30 @@
+{
+  "_comment": "Solar terms (24 节气) and festivals to fire calendar_event heartbeats on. solar_terms is keyed by full date (varies year-by-year — extend in your fork). festivals._yearly_solar is keyed by MM-DD (yearly). festivals._yearly_lunar is keyed by Chinese lunar date strings (resolved via zhdate).",
+
+  "solar_terms": {
+    "_comment": "Example: 2026 dates for the eight major solar terms. Extend for other years; the room renderer also reads these for the season overlay (see room_mcp/config.season_terms).",
+    "2026-02-04": {"name": "立春", "pinyin": "lìchūn", "hint_zh": "立春。"},
+    "2026-03-20": {"name": "春分", "pinyin": "chūnfēn", "hint_zh": "春分。今天昼夜等长。"},
+    "2026-05-05": {"name": "立夏", "pinyin": "lìxià", "hint_zh": "立夏。"},
+    "2026-06-21": {"name": "夏至", "pinyin": "xiàzhì", "hint_zh": "夏至。白天最长。"},
+    "2026-08-07": {"name": "立秋", "pinyin": "lìqiū", "hint_zh": "立秋。"},
+    "2026-09-23": {"name": "秋分", "pinyin": "qiūfēn", "hint_zh": "秋分。昼夜又等长了。"},
+    "2026-11-07": {"name": "立冬", "pinyin": "lìdōng", "hint_zh": "立冬。"},
+    "2026-12-22": {"name": "冬至", "pinyin": "dōngzhì", "hint_zh": "冬至。今晚最长。"}
+  },
+
+  "festivals": {
+    "_comment": "Add dates meaningful to you here. The 'special' field optionally routes a date to a distinct trigger label (e.g. 'event:my_birthday') with its own hint pool — see calendar_event_tick in scheduler.py for how that's used.",
+    "_yearly_solar": {
+      "01-01": {"name": "元旦", "hint_zh": "元旦。新的一年。"},
+      "12-25": {"name": "圣诞", "hint_zh": "圣诞。"}
+    },
+    "_yearly_lunar": {
+      "正月初一": {"name": "春节", "hint_zh": "年初一。"},
+      "正月十五": {"name": "元宵", "hint_zh": "元宵。"},
+      "五月初五": {"name": "端午", "hint_zh": "端午。"},
+      "八月十五": {"name": "中秋", "hint_zh": "月圆。中秋。"},
+      "腊月三十": {"name": "除夕", "hint_zh": "除夕。"}
+    }
+  }
+}

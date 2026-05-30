@@ -1,0 +1,106 @@
+{
+  "_comment": "room_mcp configuration. State files live next to this file (ROOT-relative). Pool sizes are intentionally tiny here — they exist as schema examples. See PHILOSOPHY.md before filling them in.",
+
+  "city": "London",
+  "_comment_city": "Used by weather.py (wttr.in). Set to your city.",
+
+  "tz": "UTC",
+  "_comment_tz": "IANA timezone name. Used to compute local time for the time/light layer.",
+
+  "scheduler_root": "../scheduler",
+  "_comment_scheduler_root": "Path to the scheduler/ directory, relative to this config (or absolute). The renderer reads perturbation.json from here; set_next_wake writes schedule.json here.",
+
+  "atmosphere_ttl_min": 60,
+  "weather_cache_min": 15,
+
+  "pinned_notes_max": 5,
+
+  "wall_intro_phrases": [
+    "On the wall, in your own hand:",
+    "Pinned to the wall, your handwriting:"
+  ],
+
+  "wall_corner_lines": [
+    "（还贴着几张，墙角那张边卷起来了。）",
+    "（旁边还贴着几张，一张边角翘起来。）"
+  ],
+
+  "space_metaphors": [
+    "The drawer's shut. The keep shelf's glass door catches the light.",
+    "Closed drawer. Transparent keep shelf. Both sitting quiet."
+  ],
+
+  "far_memory_prefixes": {
+    "_comment": "Prefixes for the 'far trace' layer, bucketed by trace age. Each bucket keeps 2 examples — extend in your fork.",
+    "24_48": [
+      "From earlier — ",
+      "From yesterday — "
+    ],
+    "48_168": [
+      "Something from a few days ago: ",
+      "From earlier this week — "
+    ],
+    "168_inf": [
+      "From a while back — ",
+      "An older slip on the desk says: "
+    ]
+  },
+
+  "pensieve_prefixes": [
+    "Something surfaces in the pensieve — ",
+    "A memory rises, unbidden — "
+  ],
+
+  "reflection_hint_threshold": 3,
+  "reflection_hint_text": "（The room has gone quiet. If something is worth keeping, the drawer and keep shelf are open. It's also okay to keep nothing.）",
+
+  "her_trace_presets": {
+    "_comment": "Keeper-presence presets. The keeper picks one of these labels via their check-in UI; ttl_min controls how long it stays visible. Two example states; add yours.",
+    "睡了": {
+      "ttl_min": 360,
+      "texts": [
+        "隔壁很安静，她那边像是睡了。",
+        "她那边没什么动静，应该睡着了。"
+      ]
+    },
+    "在忙": {
+      "ttl_min": 90,
+      "texts": [
+        "她那边在忙。",
+        "她那边有事在做，专注的那种安静。"
+      ]
+    }
+  },
+
+  "pets_chance": 0.35,
+  "pensieve_chance": 0.12,
+  "pensieve_min_age_hours": 6,
+
+  "season_terms": {
+    "_comment": "Solar terms (二十四节气) — astronomical fact, not personal. Date strings are MM-DD.",
+    "01-05": "小寒 (xiǎohán) — minor cold, deepest of winter coming.",
+    "01-20": "大寒 (dàhán) — great cold, the year's coldest stretch.",
+    "02-04": "立春 (lìchūn) — start of spring, though it doesn't feel like it yet.",
+    "02-19": "雨水 (yǔshuǐ) — rain water, winter's grip loosens.",
+    "03-06": "惊蛰 (jīngzhé) — insects wake, ground softens.",
+    "03-20": "春分 (chūnfēn) — spring equinox, day equals night.",
+    "04-05": "清明 (qīngmíng) — clear and bright, ancestor day.",
+    "04-20": "谷雨 (gǔyǔ) — grain rain, planting season.",
+    "05-05": "立夏 (lìxià) — start of summer.",
+    "05-21": "小满 (xiǎomǎn) — grain begins to fill out.",
+    "06-05": "芒种 (mángzhòng) — bearded grain, harvest of wheat begins.",
+    "06-21": "夏至 (xiàzhì) — summer solstice, longest day of the year.",
+    "07-07": "小暑 (xiǎoshǔ) — minor heat.",
+    "07-23": "大暑 (dàshǔ) — great heat, the year's hottest.",
+    "08-07": "立秋 (lìqiū) — start of autumn — calendar autumn, even if it's still hot.",
+    "08-23": "处暑 (chùshǔ) — heat retreats.",
+    "09-07": "白露 (báilù) — white dew, mornings cool.",
+    "09-23": "秋分 (qiūfēn) — autumn equinox.",
+    "10-08": "寒露 (hánlù) — cold dew.",
+    "10-23": "霜降 (shuāngjiàng) — frost descends.",
+    "11-07": "立冬 (lìdōng) — start of winter.",
+    "11-22": "小雪 (xiǎoxuě) — minor snow.",
+    "12-07": "大雪 (dàxuě) — major snow.",
+    "12-21": "冬至 (dōngzhì) — winter solstice, shortest day."
+  }
+}

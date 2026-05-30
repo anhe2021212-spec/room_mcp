@@ -1,0 +1,106 @@
+{
+  "_comment": "Scheduler config. State files live next to this file. Pool sizes are intentionally tiny — fork and fill.",
+
+  "heartbeat_rhythm": {
+    "_comment": "Adaptive intervals. day_hours[0] <= current_hour < day_hours[1] counts as day.",
+    "day_hours": [8, 22],
+    "day_range_min": [30, 60],
+    "night_range_min": [90, 180]
+  },
+
+  "weather_detector": {
+    "enabled": true,
+    "city": "London",
+    "tick_interval_sec": 600,
+    "_comment_significant": "Weather kind transitions among these keywords are treated as significant.",
+    "significant_keywords": ["rain", "snow", "thunder", "sunny", "clear", "cloudy", "fog", "mist"]
+  },
+
+  "morning_news": {
+    "enabled": true,
+    "_comment": "Once per day, at a uniformly random time in [window_start_hour, window_end_hour). Yields to same-tick manual/weather and gives up the day; never makes up a missed firing.",
+    "window_start_hour": 6,
+    "window_end_hour": 9
+  },
+
+  "calendar_event": {
+    "enabled": true,
+    "_comment": "Runs once daily at 00:30 to check solar terms / festivals. Requires `zhdate` for lunar festival lookup (pip install zhdate)."
+  },
+
+  "mail_detector": {
+    "enabled": false,
+    "_comment": "Disabled by default. Set credentials via .env (IMAP_HOST / IMAP_PORT / IMAP_USER / IMAP_PASS) and flip enabled=true.",
+    "imap_host": "",
+    "imap_port": 993,
+    "imap_user": "",
+    "imap_pass": "",
+    "tick_interval_sec": 300,
+    "watch_senders": [],
+    "watch_keywords": []
+  },
+
+  "notifier": "telegram",
+  "_comment_notifier": "Which notifier in notifiers/ to load. 'telegram' (default), 'stdout' (no external delivery, prints to console). Implement your own by subclassing Notifier in notifiers/ and adding a load entry to notifiers/__init__.py.",
+
+  "notifier_config": {
+    "_comment_telegram": "Telegram notifier reads its credentials from environment variables (see .env.example). Only the non-secret settings live here.",
+    "telegram": {
+      "delete_delay_seconds": 300,
+      "send_timeout_seconds": 30,
+      "delete_timeout_seconds": 15,
+      "max_keepalive_fails": 5
+    },
+    "stdout": {
+      "include_timestamp": true
+    }
+  },
+
+  "perturbation_imagery": {
+    "_comment": "trigger → hint pool. Each pool keeps 2 examples in this open-source release; fill out in your fork. Scheduled fires write null hint and the room renderer skips that layer for them.",
+    "manual": [
+      "门好像被轻轻敲过。",
+      "门那边轻轻响了一下。"
+    ],
+    "event:mail": [
+      "Something new in the inbox.",
+      "A new envelope, unopened."
+    ],
+    "event:weather:rain": [
+      "Sounds like rain started.",
+      "The light outside just changed — rain."
+    ],
+    "event:weather:snow": [
+      "First snow, maybe.",
+      "Something white falling outside."
+    ],
+    "event:weather:thunder": [
+      "Thunder rolling far off.",
+      "The air outside shifted heavy."
+    ],
+    "event:weather:sunny": [
+      "Light broke through outside.",
+      "The clouds opened, sun on the boards."
+    ],
+    "event:weather:clear": [
+      "Sky cleared up just now.",
+      "The grey lifted off."
+    ],
+    "event:weather:cloudy": [
+      "Light flattened — clouds rolled in.",
+      "The sun went behind something."
+    ],
+    "event:weather:fog": [
+      "Fog softened everything outside.",
+      "The window's gone white with mist."
+    ],
+    "event:weather:mist": [
+      "Mist rising outside.",
+      "The view's softened with damp air."
+    ],
+    "morning_news": [
+      "Morning. The world's been busy while you weren't looking.",
+      "Headlines came in overnight."
+    ]
+  }
+}

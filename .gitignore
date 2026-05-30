@@ -1,0 +1,45 @@
+# Credentials and sessions
+.env
+*.session
+*.session-journal
+
+# Runtime state — created on first run, contains user data
+private/
+keep/
+heartbeat_state.json
+her_trace.json
+room_note.json
+weather_cache.json
+weather_detector_cache.json
+last_run.json
+mail_seen_uids.json
+scheduler.pid
+perturbation.json
+manual_wake.flag
+
+# These are state files that should NOT be committed.
+# Empty templates exist in the repo (room_state.json, etc.). Once you run
+# the system they fill with personal content — don't commit those changes.
+room_state.json
+
+# Logs
+*.log
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+.mypy_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~

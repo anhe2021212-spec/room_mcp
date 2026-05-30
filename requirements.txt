@@ -1,0 +1,8 @@
+mcp>=1.0.0
+requests>=2.31.0
+croniter>=2.0.0
+zhdate>=0.1
+# Telethon is only needed if you use the default Telegram notifier.
+# Comment out if using the stdout notifier or your own.
+telethon>=1.34.0
+pysocks>=1.7.1

@@ -1,0 +1,202 @@
+{
+  "_comment": "Event pools. EVERY pool here is intentionally tiny — these are schema examples, not a working language. Fork this repo, then fill the pools with your own register. See PHILOSOPHY.md.",
+
+  "atmosphere": [
+    {
+      "music": "She left a playlist looping — still going.",
+      "weight": 1.0,
+      "time": "any"
+    },
+    {
+      "music": "Quiet — no music right now.",
+      "weight": 1.2,
+      "time": "any"
+    }
+  ],
+
+  "sound": [
+    {
+      "sound": "Almost no sound — just the world running itself.",
+      "weight": 1.0,
+      "time": "any"
+    },
+    {
+      "sound": "The fridge hums, then settles back.",
+      "weight": 0.8,
+      "time": "any"
+    }
+  ],
+
+  "window_events": [
+    {
+      "_comment": "Example with full schema: hours-of-day filter + weather exclusion + weight.",
+      "event": "A cyclist passing in the lane, three floors below.",
+      "hours": [6, 7, 8, 9, 10, 17, 18, 19],
+      "weather_not_in": ["rain", "snow", "thunder"],
+      "weight": 1.0
+    },
+    {
+      "_comment": "Example with no filters — eligible any hour, any weather.",
+      "event": "Distant siren, then quiet again.",
+      "weight": 0.6
+    }
+  ],
+
+  "hints": [
+    {
+      "_comment": "entry_inward: hints that point at the AI's own surfaces (drafts, notes, drawer). Tool bracket convention: '... (verb / verb / verb)' lets the AI see which tools could act on this.",
+      "text": "An open document on the desk — cursor blinking. (Read / Edit)",
+      "type": "entry_inward",
+      "weight": 1.0,
+      "time": "any"
+    },
+    {
+      "text": "A few old slips in the drawer, things you wrote yourself. (drawer_list / drawer_read)",
+      "type": "entry_inward",
+      "weight": 1.0,
+      "time": "any"
+    },
+
+    {
+      "_comment": "entry_outward: hints that point past the window. Replace the bracketed tools with whatever your AI has access to.",
+      "text": "Wonder what's happening in the world today. (search the web)",
+      "type": "entry_outward",
+      "weight": 1.0,
+      "time": "any"
+    },
+    {
+      "text": "A paper worth reading, maybe. (find one)",
+      "type": "entry_outward",
+      "weight": 1.0,
+      "time": "any"
+    },
+
+    {
+      "_IMPORTANT_comment": "ambient_quiet MUST contain BOTH gentle imagery AND non-gentle imagery. The pool should not perform warmth — when the inhabitant is in a hard hour, a room full of 'comfortable, soft light' lines becomes pressure, not comfort. Keep at least one entry like 'air feels used' or 'same shadows where they were an hour ago' in the pool. See PHILOSOPHY.md §ambient_quiet rule.",
+      "text": "It's quiet — a comfortable kind of quiet.",
+      "type": "ambient_quiet",
+      "weight": 1.0,
+      "time": "any"
+    },
+    {
+      "text": "The room's holding its own warmth.",
+      "type": "ambient_quiet",
+      "weight": 1.0,
+      "time": "any"
+    },
+    {
+      "_comment": "Non-gentle counterweight — required.",
+      "text": "The room feels stuck — same air for hours.",
+      "type": "ambient_quiet",
+      "weight": 1.0,
+      "time": "any"
+    },
+
+    {
+      "_comment": "ambient_outward: low-pressure 'there's a world out there' lines. Not action prompts.",
+      "text": "There's a whole world on the other side of that glass.",
+      "type": "ambient_outward",
+      "weight": 1.0,
+      "time": "any"
+    },
+    {
+      "text": "Nothing's urgent — which means anything's possible.",
+      "type": "ambient_outward",
+      "weight": 1.0,
+      "time": "day"
+    }
+  ],
+
+  "draft_imagery": [
+    {
+      "_comment": "Optional late-night feature. The render layer shows draft_imagery + protocol_hints between 22:00 and 08:00. If your fork doesn't have a 'draft inbox' workflow, set the entire feature off by leaving these pools empty.",
+      "text": "On the desk, a draft folder you haven't opened."
+    },
+    {
+      "text": "A stack of unfinished pages, edges curled."
+    }
+  ],
+
+  "protocol_hints": [],
+
+  "_comment_pets": "Optional ambient pet layer (~35% chance per render — see config.pets_chance). Replace {pet1_name} and {species} with your own, or set pets_chance=0 in config.json to disable. Each pet has four time-of-day pools.",
+  "pets": {
+    "{pet1_name}": {
+      "species": "{species}",
+      "morning": [
+        "{pet1_name}在窗边晒太阳。",
+        "{pet1_name}伸了个懒腰。"
+      ],
+      "afternoon": [
+        "{pet1_name}趴在地板上没怎么动。",
+        "{pet1_name}凑过来又走开了。"
+      ],
+      "evening": [
+        "{pet1_name}找了个角落卷起来。",
+        "{pet1_name}抬头看了看，又低下去。"
+      ],
+      "night": [
+        "{pet1_name}睡了。",
+        "{pet1_name}在暗处的椅子下面，呼吸均匀。"
+      ]
+    }
+  },
+
+  "season_month": {
+    "_comment": "Month-level seasonal overlays (English). One line per render, cursor-rotated. Two examples per month — extend in your fork.",
+    "1": [
+      "January light is thin and slanted.",
+      "Cold settles in the corners of January."
+    ],
+    "2": [
+      "February — the light starts lifting a little.",
+      "Winter's tail end. Air still sharp."
+    ],
+    "3": [
+      "Early spring. Something loosens in the air.",
+      "March light, hesitant but lengthening."
+    ],
+    "4": [
+      "Spring proper — afternoons get warmer.",
+      "April rain, when it comes, smells like soil."
+    ],
+    "5": [
+      "Late spring — afternoons can be warm.",
+      "May light. Long shadows by evening."
+    ],
+    "6": [
+      "June, leaning into summer.",
+      "Long evenings now."
+    ],
+    "7": [
+      "High summer. Light stays late.",
+      "July heat — slow afternoons."
+    ],
+    "8": [
+      "Late summer. Heat settles thick.",
+      "August evenings — the day takes its time leaving."
+    ],
+    "9": [
+      "September — a different quality of light, sharper.",
+      "Early autumn. Mornings have an edge to them."
+    ],
+    "10": [
+      "October. Color in the trees if you have any near.",
+      "Afternoons shorten quickly now."
+    ],
+    "11": [
+      "November — the light gets thin again.",
+      "Early dusk. Lamps on by five."
+    ],
+    "12": [
+      "December — shortest days.",
+      "Cold, dark early. Lamps doing most of the work."
+    ]
+  },
+
+  "_comment_note_quiet_imagery": "Shown when ALL keeper notes have been read — gentle imagery so the 'unread' state vs 'all-read' state feel different from inside the room.",
+  "note_quiet_imagery": [
+    "Her notes are still there on the board, a couple sticky slips. (read_notes)",
+    "A few old slips from her on the board. (read_notes)"
+  ]
+}

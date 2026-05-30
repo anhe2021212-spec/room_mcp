@@ -1,0 +1,11 @@
+{
+  "tasks": [
+    {
+      "id": "heartbeat",
+      "enabled": true,
+      "cron": "",
+      "next_run": "",
+      "prompt": "heartbeat"
+    }
+  ]
+}
