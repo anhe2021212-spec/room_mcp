@@ -382,7 +382,8 @@ just opens the door for the bilingual case.
 
 ## License
 
-MIT (placeholder — see `LICENSE`). Edit the year and author lines before publishing.
+This project is licensed under the [GNU Affero General Public License v3.0](LICENSE).
+See [NOTICE](NOTICE) for the 2026-08-16 license transition and historical notes.
 
 ## Acknowledgments
 
