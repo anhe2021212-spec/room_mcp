@@ -552,11 +552,11 @@ incorporated pursuant to the following paragraph.
 
 Notwithstanding any other provision of this License, you have
 permission to link or combine any covered work with a work licensed
-under version 3 of the GNU General Public License into a single
-combined work, and to convey the resulting work.  The terms of this
-License will continue to apply to the part which is the covered work,
-but the work with which it is combined will remain governed by version
-3 of the GNU General Public License.
+under version 3 of the GNU General Public License into a single combined
+work, and to convey the resulting work.  The terms of this License will
+continue to apply to the part which is the covered work, but the work
+with which it is combined will remain governed by version 3 of the GNU
+General Public License.
 
 14. Revised Versions of this License.
 
@@ -659,6 +659,6 @@ solutions will be better for different programs; see section 13 for the
 specific requirements.
 
 You should also get your employer (if you work as a programmer) or
-school, if any) to sign a "copyright disclaimer" for the program, if
+school, if any, to sign a "copyright disclaimer" for the program, if
 necessary. For more information on this, and how to apply and follow
 the GNU AGPL, see <http://www.gnu.org/licenses/>.
